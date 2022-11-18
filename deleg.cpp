@@ -24,7 +24,7 @@ public:
 		this->wid = wid;
 		this->area = len * wid;
 	}
-
+	// delegation
 	Rectangle(int len, int wid, string c)
 		: Rectangle(len, wid)
 	{

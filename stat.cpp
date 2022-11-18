@@ -25,7 +25,8 @@ public:
 		return total;
 	}
 };
-
+// ISO C++ forbids in-class initialization of non-const
+// static member
 int Animals::total = 0;
 int main()
 {
@@ -33,10 +34,15 @@ int main()
 	Animals *lion = new Animals("lion");
 
 	cout << "Tiger: " << tiger->name << endl;
+	cout << "Total: " << Animals::getTotal() << endl;
+	// best practice
+	cout << "Total: " << tiger->getTotal() << endl;
+	// also works
 	cout << "Lion: " << lion->name << endl;
-	cout << "Total: " << Animals::getTotal() << endl; // best practice
-	cout << "Total: " << tiger->getTotal() << endl;	  // also works
-	cout << "Total: " << lion->getTotal() << endl;	  // also works
+	cout << "Total: " << lion->getTotal() << endl;
 	delete (lion);
-	cout << "Total: " << Animals::getTotal() << endl; // best practice
+	// best practice
+	cout << "Total: " << Animals::getTotal() << endl;
+	delete (tiger);
+	cout << "Total: " << Animals::getTotal() << endl;
 }

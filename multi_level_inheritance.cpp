@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 class MenuItem
@@ -43,7 +42,7 @@ class HotDrinks : public Drink
 {
 
 public:
-    using Drink::Drink;
+    using Drink::Drink; // using the Drink constructor
     // using MenuItem::MenuItem;
     int temperature;
 
