@@ -1,4 +1,6 @@
 // Singly Linked List without tail pointer
+// The member functions have been impleneted inside the class
+// definition for the sake of simplicity
 
 #include <iostream>
 using namespace std;
@@ -160,8 +162,10 @@ public:
                 {
                     if (flag == index - 1)
                     {
+                        Node *del = curr->next;
                         curr->next = curr->next->next;
-                        delete (curr->next);
+                        delete (del);
+                        return;
                     }
                     curr = curr->next;
                     flag++;
@@ -334,7 +338,9 @@ int main()
     ll.insertAtEnd(50);
     ll.insertAtEnd(40);
     ll.insertAtEnd(30);
+    ll.print();
     ll.insertAtEnd(20);
+    ll.deleteAt(3);
     ll.print();
     ll.find(30);
 }
