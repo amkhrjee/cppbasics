@@ -1,51 +1,8 @@
 // This is a Linked List implementation with tail pointer
 // + a few improvements + horrendous error handling :)
 #include <iostream>
+#include "LinkedList.h"
 using namespace std;
-
-class LinkedList
-{
-    struct Node
-    {
-        int data;
-        Node *next;
-        Node(int data) : data(data), next(NULL) {}
-    };
-    Node *head;
-    Node *tail;
-
-public:
-    LinkedList()
-    {
-        head = tail = NULL;
-    }
-    // helpers
-    bool isEmpty();
-    int len();
-    // insertion
-    void insertAtEnd(int);
-    void insertAtBeg(int);
-    void insertAt(int, int);
-    // deletion
-    void deleteAtEnd();
-    void deleteAtBeg();
-    void deleteAt(int);
-    // setters
-    void setLast(int);
-    void setFirst(int);
-    void setAt(int, int);
-    // getters
-    int getLast();
-    int getFirst();
-    int getAt(int);
-    // minmax
-    friend int findMin(LinkedList &);
-    friend int findMax(LinkedList &);
-    // search
-    friend void search(LinkedList &, int);
-    // display
-    void print();
-};
 
 // helpers
 bool LinkedList::isEmpty()
@@ -375,29 +332,13 @@ void LinkedList::print()
     }
 }
 
-int main()
+LinkedList::~LinkedList()
 {
-    LinkedList ll;
-    ll.insertAtEnd(12);
-    ll.insertAtEnd(17);
-    ll.insertAtEnd(560);
-    ll.insertAtEnd(40);
-    ll.insertAtEnd(30);
-    ll.insertAtBeg(20);
-    ll.insertAt(2, 76);
-    ll.insertAt(1, 6);
-    ll.insertAt(0, 456);
-    ll.deleteAtEnd();
-    ll.deleteAtBeg();
-    ll.deleteAt(3);
-    cout << "Last: " << ll.getLast() << endl
-         << "First: " << ll.getFirst() << endl
-         << "At 3: " << ll.getAt(3) << endl;
-    ll.setFirst(69);
-    ll.setLast(2000);
-    ll.setAt(3, 420);
-    cout << "Max: " << findMax(ll) << endl
-         << "Min: " << findMin(ll) << endl;
-    ll.print();
-    search(ll, 420);
+    Node *curr = head;
+    while (curr != NULL)
+    {
+        Node *nextNode = curr->next;
+        delete (curr);
+        curr = nextNode;
+    }
 }
