@@ -52,12 +52,12 @@ Node *AVL::leftRotate(Node *root)
 
     // performing rotation
     x->left = root;
-    root->right = t;
+    root->right = y;
 
     return x;
 }
 
-Node *AVL::insertKey(Node *r, int key);
+Node *AVL::insertKey(Node *r, int key)
 {
     Node *new_node = new Node(key);
     if (r == NULL)

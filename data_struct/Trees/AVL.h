@@ -6,6 +6,7 @@ class AVL : public BST
 public:
     int height(Node *);
     int balanceFactor(Node *);
+    virtual Node *insertKey(Node*, int);
     Node *leftRotate(Node *);
     Node *rightRotate(Node *);
 };
