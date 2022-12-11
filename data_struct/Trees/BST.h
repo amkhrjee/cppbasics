@@ -3,7 +3,10 @@ struct Node
     int data;
     Node *left;
     Node *right;
-    Node(int data) : data(data), left(nullptr), right(nullptr){};
+    Node(int data)
+        : data(data),
+          left(nullptr),
+          right(nullptr){};
 };
 class BST
 {
