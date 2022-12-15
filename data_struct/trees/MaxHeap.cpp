@@ -15,7 +15,6 @@ public:
     void MaxHeapify(int);
     void insertKey(int);
     int extractMax();
-    void setKeyAt(int);
     int left(int);
     int right(int);
     int parent(int);

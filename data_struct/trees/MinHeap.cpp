@@ -88,7 +88,6 @@ void MinHeap::MinHeapify(int index)
         smallest = l;
     if (r < heap_size && harr[r] < harr[smallest])
         smallest = r;
-    // shit is going on an inifinte loop here
     if (smallest != index)
     {
         swap(harr[smallest], harr[index]);
